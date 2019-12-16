@@ -18,7 +18,7 @@ class BOW_Paragraph_GibbsSampler():
         num_topics=25,
         H_P_prior=1, 
         H_T_prior=1,
-        gamma=.3,
+        gamma=.7,
         alpha=1,
         beta=1
     ):
@@ -96,14 +96,14 @@ class BOW_Paragraph_GibbsSampler():
                         ## set paragraph word-topics counts
                         self.partype_by_wordtopic__wordtopic_counts[partype, word_topic] += 1
                         self.partype__wordtopic_counts[partype] += 1
-                        self.vocab_by_wordtopic__word_counts[word_id, word_topic] += 1
+                        self.vocab_by_wordtopic__word_counts[word, word_topic] += 1
                         self.wordtopic__word_counts[word_topic] += 1
 
                     else:
                         ## set document word-topic counts
                         self.doc_by_wordtopic__wordtopic_counts[doc_id, word_topic] += 1
                         self.doc__wordtopic_counts[doc_id] += 1
-                        self.vocab_by_wordtopic__word_counts[word_id, word_topic] += 1
+                        self.vocab_by_wordtopic__word_counts[word, word_topic] += 1
                         self.wordtopic__word_counts[word_topic] += 1
 
                     ## cache
@@ -301,7 +301,7 @@ if __name__=="__main__":
     vocab_fp = os.path.join(args.i, 'vocab.txt')
     vocab = open(vocab_fp).read().split('\n')
 
-    sampler = BOW_Paragraph_GibbsSampler(docs=docs, vocab=vocab)
+    sampler = BOW_Paragraph_GibbsSampler(docs=docs[:1000], vocab=vocab)
 
     ##
     cached_files = glob.glob(os.path.join(output_dir, 'trained-sampled-iter*'))
