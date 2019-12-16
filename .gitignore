@@ -1,0 +1,4 @@
+*.pkl
+*.json
+*.txt
+notebooks/.ipynb_checkpoints
