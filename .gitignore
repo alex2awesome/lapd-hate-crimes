@@ -1,4 +1,6 @@
 *.pkl
 *.json
 *.txt
+*.csv
+*.xml
 notebooks/.ipynb_checkpoints

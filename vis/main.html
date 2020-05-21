@@ -1,0 +1,91 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Pulitzer Demographics</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://storage.cloud.google.com/cross-town-vis/css/bootstrap.min.css?authuser=0">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link rel="stylesheet" href="https://storage.cloud.google.com/cross-town-vis/css/style.css">
+  <script src="https://storage.cloud.google.com/cross-town-vis/js/libs/modernizr-2.0.6.min.js"></script>
+  <!-- <script src="js/libs/modernizr-2.0.6.min.js"></script> -->
+</head>
+
+<body>
+
+  <div id="container" class="container">
+    <header>
+    <div><h1 id='header'>LA Hate Crime Demographics:</h1><h3 id='subheader'><em>All Hate Crimes</em></h3></div>
+    </header>
+    <div id="main" role="main" style="margin-left: -18px !important;">
+      
+      <div id="view_selection" class="btn-group">
+
+        <a href="#" id="all" class="btn active">All Hate Crime</a>
+        <a href="#" id="race" class="btn">Crime by Race/Ethnicity</a>
+        <a href="#" id="gender" class="btn">Crime by Sex/Gender</a>
+        <a href="#" id="crime_category" class="btn">Crime Categories</a>
+        <a href="#" id="ages" class="btn">Crime by Age</a>
+        <a href="#" id="motivation" class="btn">Motivation</a>
+        <a href="#" id="time" class="btn">Crime Over Time</a>
+      </div>
+      
+      <!-- <div id="toggle" class="btn-group" style="position: absolute; right: 20px;"></div> -->
+
+      <div id="toggle" class="btn-group"></div>
+      <div id="sub_toggle" class="btn-group"></div>
+      <div id="vis">
+        <div id='map'></div>
+        <div id='map_label'></div>
+      </div>
+    </div>
+  </div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<!--   <script>
+    window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')
+  </script>
+ -->
+<!--   <script defer src="js/libs/plugins.js"></script>
+  <script defer src="js/libs/script.js"></script>
+  <script src="js/libs/CustomTooltip.js"></script>
+  <script src="js/libs/d3.js"></script>
+  <script src="js/libs/d3.geo.projection.v0.min.js"></script>
+  <script src="js/libs/topojson.v1.min.js"></script>
+  <script src="js/libs/colorbrewer.v1.min.js"></script> 
+  <script src="js/libs/queue.v1.min.js"></script>
+  <script src="js/util.js"></script> 
+  <script src="js/vis.js"></script>
+ -->
+  <script defer src="https://storage.cloud.google.com/cross-town-vis/js/libs/plugins.js"></script>
+  <script defer src="https://storage.cloud.google.com/cross-town-vis/js/libs/script.js"></script>
+  <script src="https://storage.cloud.google.com/cross-town-vis/js/libs/CustomTooltip.js"></script>
+  <script src="https://storage.cloud.google.com/cross-town-vis/js/libs/d3.js"></script>
+  <script src="https://storage.cloud.google.com/cross-town-vis/js/libs/d3.geo.projection.v0.min.js"></script>
+  <script src="https://storage.cloud.google.com/cross-town-vis/js/libs/topojson.v1.min.js"></script>
+  <script src="https://storage.cloud.google.com/cross-town-vis/js/libs/colorbrewer.v1.min.js"></script> 
+  <script src="https://storage.cloud.google.com/cross-town-vis/js/libs/queue.v1.min.js"></script>
+  <script src="https://storage.cloud.google.com/cross-town-vis/js/util.js"></script> 
+  <script src="https://storage.cloud.google.com/cross-town-vis/js/vis.js"></script>
+
+
+  <script type="text/javascript">
+      $(document).ready(function() {
+        $('#view_selection a').click(function() {
+              var view_type = $(this).attr('id');
+              $('#view_selection a').removeClass('active');
+              $(this).toggleClass('active');
+              toggle_view(view_type);
+              return false;
+        });
+      });
+  </script> 
+</body>
+</html>

@@ -176,7 +176,9 @@ specific_stop_words = [
     'world business briefing : world trade',
     'nytimes',
     'www',
-    'nyt'
+    'nyt',
+    'artsentertainment',
+    'times'
 ]
 
 english_stopwords = [item.strip('\n') for item in nltk.corpus.stopwords.open('english')]
